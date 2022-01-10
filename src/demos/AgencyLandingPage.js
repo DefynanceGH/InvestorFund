@@ -13,13 +13,16 @@ import FAQ from "components/faqs/SimpleWithSideImage.js";
 import ContactUsForm from "components/forms/TwoColContactUsWithIllustration.js";
 import Footer from "components/footers/MiniCenteredFooter.js";
 import customerSupportIllustrationSrc from "images/customer-support-illustration.svg";
-import Header, { NavLink, NavLinks, PrimaryLink, LogoLink, NavToggle, DesktopNavLinks } from "../components/headers/light.js";
+import Header, {  NavLinks, PrimaryLink, LogoLink, NavToggle, DesktopNavLinks } from "../components/headers/light.js";
 import styled from "styled-components";
 
 const StyledHeader = styled(Header)`
-  ${tw`pb-16 max-w-none `}
-  ${DesktopNavLinks}, ${LogoLink} {
-    ${tw`text-primary-500 hover:border-gray-300 hover:text-gray-300`}
+  ${tw`pb-20 max-w-none `}
+  ${DesktopNavLinks} {
+    ${tw`flex justify-center text-primary-500 hover:border-gray-300 hover:text-gray-300`}
+  }
+  ${LogoLink} {
+    ${tw`w-10 h-10 my-2`}
   }
   ${PrimaryLink} {
     ${tw`bg-primary-400 hover:bg-primary-500`}
@@ -31,9 +34,6 @@ const StyledHeader = styled(Header)`
 
 const navLinks = [
   <NavLinks key={1}>
-    <PrimaryLink href="/#">
-      Sign in
-    </PrimaryLink>
   </NavLinks>
 ];
 
@@ -41,7 +41,6 @@ export default () => (
   <AnimationRevealPage>
     <StyledHeader links={navLinks}/>
     <Hero />
-    <MainFeature />
     <Features />
     <MainFeature2 />
     <Portfolio />

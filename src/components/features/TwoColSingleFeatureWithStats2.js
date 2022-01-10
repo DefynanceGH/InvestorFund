@@ -3,9 +3,8 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
-import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
-import { ReactComponent as SvgDotPattern } from "images/dot-pattern.svg";
 import { ReactComponent as BulletIcon} from 'images/checkbox-circle.svg'
+import { ReactComponent as Butterfly} from 'images/Butterfly.svg'
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
@@ -15,27 +14,18 @@ const TextColumn = styled(Column)(props => [
   props.textOnLeft ? tw`md:mr-12 lg:mr-16 md:order-first` : tw`md:ml-12 lg:ml-16 md:order-last`
 ]);
 
-const TextContent = tw.div`lg:py-8 text-center md:text-left`;
+const TextContent = tw.div`lg:py-8 text-center md:text-left inline`;
 
 const Subheading = tw(SubheadingBase)`text-center md:text-left`;
 const Heading = tw(
   SectionHeading
 )`mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`;
-const Description = tw.p`mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`;
+const Description = tw.p`text-center md:text-left font-medium text-secondary-100`;
 
-const Statistics = tw.div`flex flex-col items-center sm:block text-center md:text-left mt-4`;
-const Statistic = tw.div`text-left sm:inline-block sm:mr-12 last:mr-0 mt-4`;
-const Value = tw.div`font-bold text-lg sm:text-xl lg:text-2xl text-secondary-500 tracking-wide`;
-const Key = tw.div`font-medium text-primary-700`;
 
-const PrimaryButton = tw(PrimaryButtonBase)`mt-8 md:mt-10 text-sm inline-block mx-auto md:mx-0`;
-
-const DecoratorBlob = styled(SvgDotPattern)(props => [
-  tw`w-20 h-20 absolute right-0 bottom-0 transform translate-x-1/2 translate-y-1/2 fill-current text-primary-500 -z-10`
-]);
 
 const Bullet = styled(BulletIcon)(props => [
-  tw`w-10 h-10 text-green-100`
+  tw`w-10 h-10 text-green-100 `
 ]);
 
 export default ({
@@ -45,31 +35,25 @@ export default ({
       <span tw="text-primary-100">The Defynance ISA</span>
     </>
   ),
-  description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-  primaryButtonText = "Learn More",
-  primaryButtonUrl = "https://timerse.com",
+  description = (
+    <>
+      <div tw="justify-center">
+        <Bullet tw=""/>
+        <h2 tw=" inline-block">Interest-free Refinancing</h2>
+      </div>
+      <div tw="justify-center">
+        <Bullet/>
+        <h2 tw="inline-block">Affordable Payments</h2>
+      </div>
+      <div tw="justify-center">
+        <Bullet/>
+        <h2 tw="inline-block">Cash-back Savings</h2>
+      </div>
+    </>
+  ),
   imageInsideDiv = true,
-  statistics = null,
   textOnLeft = false
 }) => {
-  // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
-  //Change the statistics variable as you like, add or delete objects
-  const defaultStatistics = [
-    {
-      key: "Clients",
-      value: "2282+"
-    },
-    {
-      key: "Projects",
-      value: "3891+"
-    },
-    {
-      key: "Awards",
-      value: "1000+"
-    }
-  ];
-
-  if (!statistics) statistics = defaultStatistics;
 
   return (
     <Container>
@@ -78,26 +62,14 @@ export default ({
           <TextContent>
             {subheading && <Subheading>{subheading}</Subheading>}
             <Heading>{heading}</Heading>
-            <Bullet tw="inline-block"/>
-            <h2>Hoashfdoa</h2>
+            <Description>{description}</Description>
           </TextContent>
         </TextColumn>
-        <TextColumn textOnLeft={textOnLeft}>
-          <TextContent>
-            {subheading && <Subheading>{subheading}</Subheading>}
-            <Heading>{heading}</Heading>
-            <Description>{description}</Description>
-            <Statistics>
-              {statistics.map((statistic, index) => (
-                <Statistic key={index}>
-                  <Value>{statistic.value}</Value>
-                  <Key>{statistic.key}</Key>
-                </Statistic>
-              ))}
-            </Statistics>
-            <PrimaryButton as="a" href={primaryButtonUrl}>
-              {primaryButtonText}
-            </PrimaryButton>
+        <TextColumn tw="border-solid rounded p-10" textOnLeft={textOnLeft}>
+          <TextContent tw="my-auto">
+            <Subheading tw="text-lg">How it works</Subheading>
+            <p tw="text-lg">Defynance will pay off your current student loans. In exchange, you will agree to provide a fixed percentage of your fuiture income over a defined number of payments of your choice.</p>
+            <p tw="text-lg">Congratulations! You are now free of student loan debt. At the end of the Defynance ISA, you will receive a cash-back reward to enjoy your financial freedom.</p>
           </TextContent>
         </TextColumn>
       </TwoColumn>
