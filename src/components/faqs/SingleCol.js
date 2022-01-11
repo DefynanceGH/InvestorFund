@@ -44,9 +44,9 @@ export default ({
   description = "And we have got answers to all of them. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
   faqs = [
     {
-      question: "Is lunch provided free of cost ?",
+      question: "Tax deferral",
       answer:
-        "Yes, it is, if you have a membership with us. Otherwise it is charged as per the menu. Some limits do apply as to how much items can be included in your lunch. This limit is enough for any one person and merely exists to discourage abusal of the system."
+        "Answer to question 1 expanded here. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Magna etiam tempor orci eu lobortis elementum nibh tellus. Aenean euismod elementum nisi quis eleifend. "
     },
     {
       question: "Do you have 2 Bedroom suites ?",
@@ -120,8 +120,6 @@ export default ({
           </FAQSContainer>
         </Column>
       </ContentWithPaddingXl>
-      <DecoratorBlob1/>
-      <DecoratorBlob2 />
     </Container>
   );
 };

@@ -5,9 +5,7 @@ import tw from "twin.macro";
 import { css } from "styled-components/macro";
 import { SectionHeading } from "components/misc/Headings.js";
 import defaultCardImage from "../../images/shield-icon.svg";
-import SavingIcon from "../../images/piggy-bank-solid.svg";
-import CreditIcon from "../../images/gauge-solid.svg";
-import ResoucesIcon from "../../images/resource.png";
+import MoneyIcon from "../../images/money-bill-wave-alt-solid.svg";
 import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
 
 const Container = tw.div`relative bg-gray-200`;
@@ -59,28 +57,28 @@ export default () => {
 
   const cards = [
     {
-      imageSrc: CreditIcon,
+      imageSrc: MoneyIcon,
       title: "Recession Hedging",
       description: "Degree holding workers have been able to maintain income stability during elevated recession."
     },
-    { imageSrc: SavingIcon, 
+    { imageSrc: MoneyIcon, 
       title: "Proprietary Pricing and Risk Algorithm",
       description: "Our unique underwriting conrols low default risk for investors."
     },
-    { imageSrc: ResoucesIcon,
+    { imageSrc: MoneyIcon,
       title: "Social Impact",
       description: "Contribute to taking down the student loan crisis in the United States."
     },
     {
-      imageSrc: CreditIcon,
+      imageSrc: MoneyIcon,
       title: "Portfolio Diversification",
       description: "You’re investing in a pool of ISAs, not just one. This minimized the overall risk of your portfolio."
     },
-    { imageSrc: SavingIcon, 
+    { imageSrc: MoneyIcon, 
       title: "Higher Passive Returns vs Fixed Income",
       description: "Quarterly passive income at a 7–10% forecasted return with low volatility."
     },
-    { imageSrc: ResoucesIcon,
+    { imageSrc: MoneyIcon,
       title: "Liquidity Feature",
       description: "Reinvest in the next credit fund or exit once the current one ends."
     },
