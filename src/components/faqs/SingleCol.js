@@ -4,15 +4,13 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { css } from "styled-components/macro"; //eslint-disable-line
 import { SectionHeading, Subheading as SubheadingBase } from "components/misc/Headings.js";
-import { SectionDescription } from "components/misc/Typography.js";
 import { Container, ContentWithPaddingXl } from "components/misc/Layouts.js";
 import { ReactComponent as ChevronDownIcon } from "feather-icons/dist/icons/chevron-down.svg";
-import { ReactComponent as SvgDecoratorBlob1 } from "images/svg-decorator-blob-7.svg";
-import { ReactComponent as SvgDecoratorBlob2 } from "images/svg-decorator-blob-8.svg";
+import { PrimaryButton as PrimaryButtonBase } from "components/misc/Buttons.js";
+
 
 const Subheading = tw(SubheadingBase)`mb-4 text-center`;
-const Heading = tw(SectionHeading)`w-full`;
-const Description = tw(SectionDescription)`w-full text-center`;
+const Heading = tw(SectionHeading)`w-full text-primary-100`;
 
 const Column = tw.div`flex flex-col items-center`;
 const HeaderContent = tw.div``;
@@ -28,20 +26,15 @@ const QuestionToggleIcon = motion(styled.span`
   }
 `);
 const Answer = motion(tw.dd`pointer-events-none text-sm sm:text-base leading-relaxed`);
-
-const DecoratorBlob1 = styled(SvgDecoratorBlob1)`
-  ${tw`pointer-events-none -z-20 absolute right-0 top-0 h-56 w-56 opacity-15 transform translate-x-2/3 -translate-y-12 text-teal-400`}
-`;
-const DecoratorBlob2 = styled(SvgDecoratorBlob2)`
-  ${tw`pointer-events-none -z-20 absolute left-0 bottom-0 h-64 w-64 opacity-15 transform -translate-x-2/3 text-primary-500`}
-`;
-
+const PrimaryAction = styled(PrimaryButtonBase).attrs({as: "a"})`
+  ${tw` text-white no-underline rounded bg-primary-500 mx-auto inline-block mb-10 text-sm font-semibold hocus:bg-primary-600 hocus:text-white focus:shadow-outline
+  `}
+`
 
 
 export default ({
-  subheading = "FAQS",
-  heading = "You have Questions ?",
-  description = "And we have got answers to all of them. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  subheading = "Learn more",
+  heading = "Frequently Asked Questions",
   faqs = [
     {
       question: "Tax deferral",
@@ -79,7 +72,6 @@ export default ({
           <HeaderContent>
             {subheading && <Subheading>{subheading}</Subheading>}
             <Heading>{heading}</Heading>
-            {description && <Description>{description}</Description>}
           </HeaderContent>
           <FAQSContainer>
             {faqs.map((faq, index) => (
@@ -118,6 +110,8 @@ export default ({
               </FAQ>
             ))}
           </FAQSContainer>
+          <Subheading>Still have questions? Let's talk.</Subheading>
+          <PrimaryAction>Schedule a meeting</PrimaryAction>
         </Column>
       </ContentWithPaddingXl>
     </Container>

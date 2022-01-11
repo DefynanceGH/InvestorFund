@@ -2,63 +2,28 @@ import React from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import {Container as ContainerBase } from "components/misc/Layouts.js"
-import logo from "../../images/logo.svg";
-import { ReactComponent as FacebookIcon } from "../../images/facebook-icon.svg";
-import { ReactComponent as TwitterIcon } from "../../images/twitter-icon.svg";
-import { ReactComponent as YoutubeIcon } from "../../images/youtube-icon.svg";
 
 
-const Container = tw(ContainerBase)`bg-gray-900 text-gray-100 -mx-8 -mb-8`
-const Content = tw.div`max-w-screen-xl mx-auto py-20 lg:py-24`;
+const Container = tw(ContainerBase)`bg-primary-500 text-gray-100 -mx-8 -mb-8`
+const Content = tw.div`max-w-screen-xl mx-auto py-10`;
 
 const Row = tw.div`flex items-center justify-center flex-col px-8`
+const TextContent = tw.div`text-left font-thin lg:py-8 text-sm`;
 
-const LogoContainer = tw.div`flex items-center justify-center md:justify-start`;
-const LogoImg = tw.img`w-8`;
-const LogoText = tw.h5`ml-2 text-2xl font-black tracking-wider`;
 
-const LinksContainer = tw.div`mt-8 font-medium flex flex-wrap justify-center items-center flex-col sm:flex-row`
-const Link = tw.a`border-b-2 border-transparent hocus:text-gray-300 hocus:border-gray-300 pb-1 transition duration-300 mt-2 mx-4`;
-
-const SocialLinksContainer = tw.div`mt-10`;
-const SocialLink = styled.a`
-  ${tw`cursor-pointer inline-block text-gray-100 hover:text-gray-500 transition duration-300 mx-4`}
-  svg {
-    ${tw`w-5 h-5`}
-  }
-`;
-
-const CopyrightText = tw.p`text-center mt-10 font-medium tracking-wide text-sm text-gray-600`
 export default () => {
   return (
     <Container>
       <Content>
         <Row>
-          <LogoContainer>
-            <LogoImg src={logo} />
-            <LogoText>Treact</LogoText>
-          </LogoContainer>
-          <LinksContainer>
-            <Link href="#">Home</Link>
-            <Link href="#">About</Link>
-            <Link href="#">Contact Us</Link>
-            <Link href="#">Blog</Link>
-            <Link href="#">Reviews</Link>
-          </LinksContainer>
-          <SocialLinksContainer>
-            <SocialLink href="https://facebook.com">
-              <FacebookIcon />
-            </SocialLink>
-            <SocialLink href="https://twitter.com">
-              <TwitterIcon />
-            </SocialLink>
-            <SocialLink href="https://youtube.com">
-              <YoutubeIcon />
-            </SocialLink>
-          </SocialLinksContainer>
-          <CopyrightText>
-            &copy; Copyright 2020, Treact Inc. All Rights Reserved.
-          </CopyrightText>
+          <TextContent>Disclaimer</TextContent>
+          <TextContent tw="font-thin text-sm">From time to time, Defynance will make opportunities for investments in ISAs available to investors who are qualified as “Accredited Investors” (as defined below) and who have expressed an interest in learning about such investment opportunities.  Any prospective investors will only have opportunities for investments made available to them by the ISA Refi Fund only after verification of their status and an expression of specific interest.
+When investment opportunities are being offered, a Confidential Private Placement Memorandum (a “PPM”) will be furnished to approved investors on a confidential basis.  Sales of the securities may not be consummated unless prospective investors are provided with a PPM.  In particular, you should carefully read the “Risk Factors” set forth in the PPM.
+The information contained in the PPM may not be provided to persons who are not directly concerned with an investor’s decision regarding the investment offered hereby.  Investors should make their own investigations and evaluations of any securities offered.  The securities, when offered, will not be registered under the Securities Act of 1933, as amended (the “Securities Act”), or any other securities laws.  They will be offered for investment pursuant to the exemption from registration provided under Section 4(a)(2) of the Securities Act and exemptions from the registration requirements of applicable state securities laws only to persons who are “Accredited Investors,” as defined in Regulation D under the Securities Act.  There will be no public market for the offered securities.
+This website, and the information being provided to prospective investors at this time, is not an offer to sell or a solicitation of an offer to buy any securities that may be offered in the future by Defynance, nor shall any such securities be offered or sold to any person in any jurisdiction in which such offer, solicitation, purchase, or sale would be unlawful under the securities laws of such jurisdiction.
+ANY SECURITIES OFFERED BY DEFYNANCE WILL NOT HAVE BEEN RECOMMENDED BY THE U.S. SECURITIES AND EXCHANGE COMMISSION OR ANY STATE SECURITIES COMMISSION OR REGULATORY AUTHORITY.
+ANY SECURITIES OFFERED BY DEFYNANCE WILL BE SUBJECT TO RESTRICTIONS ON TRANSFERABILITY AND RESALE, AND MAY NOT BE TRANSFERRED OR RESOLD EXCEPT AS PERMITTED UNDER THE SECURITIES ACT AND APPLICABLE STATE SECURITIES LAWS, PURSUANT TO REGISTRATION OR AN EXEMPTION THEREFROM.  INVESTORS SHOULD BE AWARE THAT THEY MAY BE REQUIRED TO BEAR THE FINANCIAL RISKS OF THEIR INVESTMENT IN THE SECURITIES FOR AN INDEFINITE TIME.
+CERTAIN INFORMATION CONTAINED IN THIS WEBSITE AND IN THE PPM TO BE DELIVERED IN THE FUTURE CONSTITUTES AND WILL CONSTITUTE “FORWARD-LOOKING STATEMENTS,” WHICH CAN BE IDENTIFIED BY THE USE OF FORWARD-LOOKING TERMINOLOGY SUCH AS “MAY,” “WILL,” “SHOULD,” “EXPECT,” “ANTICIPATE,” “ESTIMATE,” “INTEND,” “CONTINUE” OR “BELIEVE” TO THE NEGATIVES THEREOF OR OTHER VARIATIONS THEREON OR COMPARABLE TERMINOLOGY.  DUE TO VARIOUS RISKS AND UNCERTAINTIES, ACTUAL EVENTS OR RESULTS FROM THE ACTUAL PERFORMANCE OF THE SECURITIES MAY DIFFER MATERIALLY FROM THOSE REFLECTED OR CONTEMPLATED IN SUCH FORWARD-LOOKING STATEMENTS.</TextContent>
         </Row>
       </Content>
     </Container>

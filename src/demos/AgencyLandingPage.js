@@ -9,6 +9,11 @@ import FAQ from "components/faqs/SingleCol";
 import customerSupportIllustrationSrc from "images/customer-support-illustration.svg";
 import Header, {  NavLinks, PrimaryLink, LogoLink, NavToggle, DesktopNavLinks } from "../components/headers/light.js";
 import styled from "styled-components";
+import TwoColSingleFeatureWithStats from "components/features/TwoColSingleFeatureWithStats.js";
+import TwoColWithSteps from "components/features/TwoColWithSteps.js";
+import SimpleSubscribeNewsletter from "components/forms/SimpleSubscribeNewsletter.js";
+import SimpleFiveColumn from "components/footers/SimpleFiveColumn.js";
+import MiniCenteredFooter from "components/footers/MiniCenteredFooter.js";
 
 const StyledHeader = styled(Header)`
   ${tw`pb-20 max-w-none `}
@@ -41,12 +46,10 @@ export default () => (
       imageSrc={customerSupportIllustrationSrc}
       imageContain={true}
       imageShadow={false}
-      subheading="FAQs"
-      heading={
-        <>
-          Do you have <span tw="text-primary-500">Questions ?</span>
-        </>
-      }
     />
+    <TwoColSingleFeatureWithStats />
+    <TwoColWithSteps />
+    <SimpleSubscribeNewsletter />
+    <MiniCenteredFooter />
   </AnimationRevealPage>
 );
