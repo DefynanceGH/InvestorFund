@@ -12,8 +12,8 @@ import styled from "styled-components";
 import TwoColSingleFeatureWithStats from "components/features/TwoColSingleFeatureWithStats.js";
 import TwoColWithSteps from "components/features/TwoColWithSteps.js";
 import SimpleSubscribeNewsletter from "components/forms/SimpleSubscribeNewsletter.js";
-import SimpleFiveColumn from "components/footers/SimpleFiveColumn.js";
 import MiniCenteredFooter from "components/footers/MiniCenteredFooter.js";
+import InvestorTool from "components/features/investortool.js";
 
 const StyledHeader = styled(Header)`
   ${tw`pb-20 max-w-none `}
@@ -41,6 +41,7 @@ export default () => (
     <StyledHeader links={navLinks}/>
     <Hero />
     <Features />
+    <InvestorTool />
     <MainFeature2 />
     <FAQ
       imageSrc={customerSupportIllustrationSrc}
