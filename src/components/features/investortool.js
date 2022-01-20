@@ -1,115 +1,56 @@
-import React, { MouseEvent, useRef } from 'react';
-import { InteractionItem } from 'chart.js';
-import {
-  Chart as ChartJS,
-  LinearScale,
-  CategoryScale,
-  BarElement,
-  PointElement,
-  LineElement,
-  Legend,
-  Tooltip,
-} from 'chart.js';
-import {
-  Chart,
-  getDatasetAtEvent,
-  getElementAtEvent,
-  getElementsAtEvent,
-} from 'react-chartjs-2';
-import faker from 'faker';
+import React from "react";
+import styled from "styled-components";
+import tw from "twin.macro";
+//eslint-disable-next-line
+import { css } from "styled-components/macro";
+import { SectionHeading, Subheading } from "components/misc/Headings.js";
+import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 
-ChartJS.register(
-  LinearScale,
-  CategoryScale,
-  BarElement,
-  PointElement,
-  LineElement,
-  Legend,
-  Tooltip
-);
+const Container = tw.div`relative`;
 
-export const options = {
-  scales: {
-    y: {
-      beginAtZero: true,
-    },
-  },
-};
+const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto`;
+const Heading = tw(SectionHeading)`w-full ml-6 text-left text-primary-100`;
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+const Sub = tw(Subheading)`w-full ml-6 text-left text-black text-xl`;
 
-export const data = {
-  labels,
-  datasets: [
-    {
-      type: 'line',
-      label: 'Dataset 1',
-      borderColor: 'rgb(255, 99, 132)',
-      borderWidth: 2,
-      fill: false,
-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-    },
-    {
-      type: 'bar',
-      label: 'Dataset 2',
-      backgroundColor: 'rgb(75, 192, 192)',
-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-      borderColor: 'white',
-      borderWidth: 2,
-    },
-    {
-      type: 'bar',
-      label: 'Dataset 3',
-      backgroundColor: 'rgb(53, 162, 235)',
-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-    },
-  ],
-};
+const Column = styled.div`
+  ${tw`md:w-1/2 lg:w-1/3 block`}
+`;
 
-export default => (
-  const printDatasetAtEvent = (dataset: InteractionItem[]) => {
-    if (!dataset.length) return;
 
-    const datasetIndex = dataset[0].datasetIndex;
+export default () => {
 
-    console.log(data.datasets[datasetIndex].label);
-  };
-
-  const printElementAtEvent = (element: InteractionItem[]) => {
-    if (!element.length) return;
-
-    const { datasetIndex, index } = element[0];
-
-    console.log(data.labels[index], data.datasets[datasetIndex].data[index]);
-  };
-
-  const printElementsAtEvent = (elements: InteractionItem[]) => {
-    if (!elements.length) return;
-
-    console.log(elements.length);
-  };
-
-  const chartRef = useRef<ChartJS>(null);
-
-  const onClick = (event: MouseEvent<HTMLCanvasElement>) => {
-    const { current: chart } = chartRef;
-
-    if (!chart) {
-      return;
-    }
-
-    printDatasetAtEvent(getDatasetAtEvent(chart, event));
-    printElementAtEvent(getElementAtEvent(chart, event));
-    printElementsAtEvent(getElementsAtEvent(chart, event));
-  };
+  const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}]
 
   return (
-    <Chart
-      ref={chartRef}
-      type='bar'
-      onClick={onClick}
-      options={options}
-      data={data}
-    />
+    <Container>
+      <div tw="ml-48">
+      <Heading><p tw="text-black text-base font-thin">GROW YOUR INVESTMENT</p>Passive Income Simulator</Heading>
+      <Sub>View how much your investment can increase with this asset class.</Sub>
+      </div>
+      <br />
+      <TwoColumn>
+        <Column tw="border-solid my-8 w-3/6">
+          <div tw="flex">
+            <Sub tw="border-solid mx-auto w-1/3 text-center rounded">Chart</Sub>
+            <Sub tw="border-solid mx-auto w-1/3 text-center rounded">Chart</Sub>
+          </div>
+          <LineChart width={600} height={300} data={data} >
+            <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+            <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+          </LineChart>
+        </Column>
+        <Column>
+          <Sub>Your initial $10,000 investment can grow to </Sub>
+        </Column>
+      </TwoColumn>
+    </Container>
   );
-)
+};
+
+
+
+
